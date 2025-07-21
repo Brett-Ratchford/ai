@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GitHub Project</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f6f8fa;
+            color: #24292f;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #0969da;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0969da;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        
+        .btn:hover {
+            background-color: #0550ae;
+        }
+        
+        code {
+            background-color: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        
+        .feature {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #0969da;
+            background-color: #f6f8fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 My Awesome Project</h1>
+        
+        <p>Welcome to my project! This is a clean, GitHub-style HTML template that you can customize for your needs.</p>
+        
+        <div class="feature">
+            <h3>✨ Features</h3>
+            <p>Built with clean HTML, CSS, and modern web standards. Ready to deploy anywhere!</p>
+        </div>
+        
+        <h2>Getting Started</h2>
+        <p>Clone this repository and start building:</p>
+        <p><code>git clone your-repo-url</code></p>
+        
+        <h2>Documentation</h2>
+        <p>Add your project documentation here. Explain how to install, configure, and use your project.</p>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#" class="btn">Get Started</a>
+            <a href="#" class="btn" style="margin-left: 10px; background-color: #6c757d;">View Docs</a>
+        </div>
+        
+        <footer style="margin-top: 40px; text-align: center; color: #6c757d; border-top: 1px solid #eaeaea; padding-top: 20px;">
+            <p>&copy; 2024 Your Project Name. Built with ❤️</p>
+        </footer>
+    </div>
+</body>
+</html>
