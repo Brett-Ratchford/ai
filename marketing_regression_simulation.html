@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marketing Regression Simulation</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .slider-container { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; }
+        input[type=range] { width: 300px; }
+        #equation { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Marketing Regression Simulation</h1>
+    <p>Adjust the ad spend across different channels to see how it affects predicted sales.</p>
+
+    <div class="slider-container">
+        <label for="tv">TV Ad Spend ($K): <span id="tv_val">50</span></label>
+        <input type="range" id="tv" min="0" max="100" value="50" step="1">
+    </div>
+    <div class="slider-container">
+        <label for="social">Social Media Ad Spend ($K): <span id="social_val">30</span></label>
+        <input type="range" id="social" min="0" max="100" value="30" step="1">
+    </div>
+    <div class="slider-container">
+        <label for="email">Email Ad Spend ($K): <span id="email_val">20</span></label>
+        <input type="range" id="email" min="0" max="100" value="20" step="1">
+    </div>
+    <div class="slider-container">
+        <label for="search">Search Ad Spend ($K): <span id="search_val">40</span></label>
+        <input type="range" id="search" min="0" max="100" value="40" step="1">
+    </div>
+
+    <div id="equation">Regression Equation: Sales = 5 + 0.8×TV + 1.2×Social + 0.5×Email + 1.0×Search</div>
+    <h2>Predicted Sales: <span id="sales_val">0</span> ($K)</h2>
+
+    <div id="plot" style="width:600px;height:400px;"></div>
+
+    <script>
+        const coeffs = { intercept: 5, tv: 0.8, social: 1.2, email: 0.5, search: 1.0 };
+
+        function calculateSales(tv, social, email, search) {
+            return coeffs.intercept + coeffs.tv * tv + coeffs.social * social + coeffs.email * email + coeffs.search * search;
+        }
+
+        function updateValues() {
+            const tv = parseInt(document.getElementById("tv").value);
+            const social = parseInt(document.getElementById("social").value);
+            const email = parseInt(document.getElementById("email").value);
+            const search = parseInt(document.getElementById("search").value);
+
+            document.getElementById("tv_val").textContent = tv;
+            document.getElementById("social_val").textContent = social;
+            document.getElementById("email_val").textContent = email;
+            document.getElementById("search_val").textContent = search;
+
+            const sales = calculateSales(tv, social, email, search);
+            document.getElementById("sales_val").textContent = sales.toFixed(2);
+
+            Plotly.newPlot("plot", [{
+                x: ["TV", "Social Media", "Email", "Search"],
+                y: [tv, social, email, search],
+                type: "bar",
+                marker: { color: "steelblue" }
+            }], {
+                title: "Ad Spend by Channel",
+                yaxis: { title: "Spend ($K)" }
+            });
+        }
+
+        document.querySelectorAll("input[type=range]").forEach(slider => {
+            slider.addEventListener("input", updateValues);
+        });
+
+        updateValues();
+    </script>
+</body>
+</html>
